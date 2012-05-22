@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 print() { 
     echo -n "$@" 
@@ -113,10 +113,6 @@ lambda() {
     unset i
     unset fun 
 }
-
-# λ() {
-#    lambda $@ 
-# }
 
 alias -g 'λ'="lambda "
 
