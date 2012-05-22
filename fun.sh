@@ -34,8 +34,13 @@ take() {
     echo $f | drop 1
 }
 
-tail() { drop 1 }
-head() { take 1 }
+tail() { 
+    drop 1 
+}
+
+head() { 
+    take 1 
+}
 
 last() {
     while read last; do
@@ -109,7 +114,10 @@ lambda() {
     unset fun 
 }
 
-# λ() { lambda $@ }
+# λ() {
+#    lambda $@ 
+# }
+
 alias -g 'λ'="lambda "
 
 append() {
@@ -119,8 +127,15 @@ append() {
     done
 }
 
-sum() { foldl λ a b . 'echo $(($a + $b))' }
+sum() { 
+    foldl λ a b . 'echo $(($a + $b))' 
+}
 
-product() { foldl λ a b . 'echo $(($a * $b))' }
+product() { 
+    foldl λ a b . 'echo $(($a * $b))' 
+}
 
-factorial() { list {1..$1} | product }
+factorial() { 
+    seq 1 $1 | product 
+}
+
