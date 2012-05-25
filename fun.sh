@@ -6,32 +6,15 @@ print() {
 
 cons() {
     echo $@
-    while read xs; do
-        echo $xs
-    done
+    command \cat
 }
 
 drop() {
-    n="$1"
-    while [[ ! $n = 0 ]]; do
-        read
-        n=$(($n - 1))
-    done
-
-    while read rest; do
-        echo $rest
-    done
+    command \tail -n +$(( ${1} + 1 ))
 }
 
 take() {
-    n="$1"
-    f=""
-    while [[ $n > -1 ]]; do
-        read l
-        f="$f\n$l"
-        n=$(($n - 1))
-    done
-    echo $f | drop 1
+    command \head -n -${1}
 }
 
 tail() { 
@@ -43,10 +26,7 @@ head() {
 }
 
 last() {
-    while read last; do
-        prev="$last"
-    done
-    echo "$last"
+    \tail -n 1
 }
 
 list() {
